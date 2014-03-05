@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onboarder", "Onboarder\Onboarder.csproj", "{561F6318-C846-4155-8709-F344ECE73C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{21DFB8BA-3436-4C2C-B8C4-5073B1000646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CC5AA531-1A89-48F4-ADD9-619079590DF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{561F6318-C846-4155-8709-F344ECE73C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{561F6318-C846-4155-8709-F344ECE73C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{561F6318-C846-4155-8709-F344ECE73C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{561F6318-C846-4155-8709-F344ECE73C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DFB8BA-3436-4C2C-B8C4-5073B1000646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DFB8BA-3436-4C2C-B8C4-5073B1000646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DFB8BA-3436-4C2C-B8C4-5073B1000646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DFB8BA-3436-4C2C-B8C4-5073B1000646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC5AA531-1A89-48F4-ADD9-619079590DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC5AA531-1A89-48F4-ADD9-619079590DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC5AA531-1A89-48F4-ADD9-619079590DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC5AA531-1A89-48F4-ADD9-619079590DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
