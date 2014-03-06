@@ -21,6 +21,9 @@ using System.Data.OracleClient;
 //Prior to writing the following line, a reference to System.Web and System.Configuration was added.
 using System.Web.Configuration;
 
+//The following is required for CommandTypes amongs many, many things.
+using System.Data;
+
 namespace DataAccess
 {
     /// <summary>
@@ -34,6 +37,8 @@ namespace DataAccess
         string connection_string = "";
         DbProviderFactory factory = null;
         DbConnection connection = null;
+        DbCommand command = null;
+        DbDataReader dataReader = null;
 
         /// <summary>
         /// Constructor which accepts a variable which tells it which
@@ -47,15 +52,17 @@ namespace DataAccess
             {
                 //Fetch the connection string for connecting with a MySql database.
                 connection_string = WebConfigurationManager.ConnectionStrings["connection_string_mysql"].ConnectionString;
+                //Initialize the required DbProviderFactory.
                 factory = DbProviderFactories.GetFactory("MySql.Data.MySqlClient");
-                connection = factory.CreateConnection();
+                sample_method();
             }
             else if (backend_type == 1)
             {
                 //Fetch the connection string for connecting with an Oracle database.
                 connection_string = WebConfigurationManager.ConnectionStrings["connection_string_oracle"].ConnectionString;
+                //Initialize the required DbProviderFactory.
                 factory = DbProviderFactories.GetFactory("System.Data.OracleClient");
-                connection = factory.CreateConnection();
+                sample_method();
             }
         }
 
@@ -66,6 +73,39 @@ namespace DataAccess
         public DataAccess()
         {
             connection_string = "";
+        }
+
+        public void sample_method(){
+            try
+            {
+                connection = factory.CreateConnection();
+                connection.ConnectionString = connection_string;
+                connection.Open();
+                using (command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "SELECT * FROM testtbl;";
+                    using (dataReader = command.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            string x = dataReader[0].ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string y = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+                dataReader.Close();
+                dataReader.Dispose();
+                command.Dispose();
+            }
         }
 
     }
