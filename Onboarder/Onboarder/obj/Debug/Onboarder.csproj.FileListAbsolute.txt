@@ -5,3 +5,5 @@ C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\obj\Debug\Onboarde
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\obj\Debug\Onboarder.csprojResolveAssemblyReference.cache
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\bin\DataAccess.dll
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\bin\DataAccess.pdb
+C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\bin\Controller.dll
+C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Onboarder\bin\Controller.pdb

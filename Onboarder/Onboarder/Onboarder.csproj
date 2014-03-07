@@ -50,6 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addAdmin.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -60,6 +61,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addAdmin.aspx.cs">
+      <DependentUpon>addAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addAdmin.aspx.designer.cs">
+      <DependentUpon>addAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
@@ -70,6 +78,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{21DFB8BA-3436-4C2C-B8C4-5073B1000646}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{CC5AA531-1A89-48F4-ADD9-619079590DF8}</Project>
       <Name>DataAccess</Name>

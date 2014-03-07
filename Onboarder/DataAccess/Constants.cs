@@ -13,8 +13,8 @@ namespace DataAccess
     public class Constants
     {
 
-        //The nomenclature goes something like this: <schema-name>.<package-name>.<procedure-name>
-
+        //The nomenclature goes something like this: <schema-name>.<package-name>.<procedure-name> or <schema-name>.<procedure-name>
+        public const string CONST_ADD_ADMIN_PROC = "kamchatka_db.pr_add_admin";
 
     }
 }

@@ -2,3 +2,6 @@ C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\bin\Debug\Control
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\bin\Debug\Controller.pdb
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\obj\Debug\Controller.dll
 C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\obj\Debug\Controller.pdb
+C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\bin\Debug\DataAccess.dll
+C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\bin\Debug\DataAccess.pdb
+C:\Users\siddharthsingh\Desktop\Kamchatka\Onboarder\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
