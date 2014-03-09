@@ -4,9 +4,9 @@
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `pr_add_admin` (IN p_in_empid_admin varchar(7), in p_in_email_admin varchar(60), in p_in_password_admin varchar(60), in p_in_firstname_admin varchar(50), in p_in_lastname_admin varchar(50), in p_in_account_admin varchar(70), in p_in_datecreated_admin datetime, in p_in_role_admin varchar(30), in p_in_project_admin varchar(100))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pr_add_admin`(IN p_in_empid_admin varchar(7), in p_in_email_admin varchar(60), in p_in_password_admin varchar(60), in p_in_firstname_admin varchar(50), in p_in_lastname_admin varchar(50), in p_in_account_admin varchar(70), in p_in_datecreated_admin datetime, in p_in_role_admin varchar(30), in p_in_project_admin varchar(100), out p_out_error varchar(200))
 BEGIN
-
+DECLARE CONTINUE HANDLER FOR SQLEXCEPTION set p_out_error="Error";
 INSERT INTO tbl_kamchatka_admin VALUES(p_in_empid_admin, p_in_email_admin, p_in_password_admin, p_in_firstname_admin, p_in_lastname_admin, p_in_account_admin, p_in_datecreated_admin, p_in_role_admin, p_in_project_admin);
 
 END

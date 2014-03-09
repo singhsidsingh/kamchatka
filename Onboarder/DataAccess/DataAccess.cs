@@ -77,6 +77,19 @@ namespace DataAccess
             connection_string = "";
         }
 
+        /// <summary>
+        /// Function to add a new administrator.
+        /// </summary>
+        /// <param name="empid_admin_da">Employee Id.</param>
+        /// <param name="email_admin_da">E-mail Address</param>
+        /// <param name="password_admin_da">Password</param>
+        /// <param name="firstname_admin_da">First Name</param>
+        /// <param name="lastname_admin_da">Last Name</param>
+        /// <param name="account_admin_da">Account</param>
+        /// <param name="datecreated_admin_da">Current Date</param>
+        /// <param name="role_admin_da">Role</param>
+        /// <param name="project_admin_da">Project</param>
+        /// <returns>Number of rows updated.</returns>
         public int Add_Admin(string empid_admin_da, string email_admin_da, string password_admin_da, string firstname_admin_da, string lastname_admin_da, string account_admin_da, DateTime datecreated_admin_da, string role_admin_da, string project_admin_da)
         {
             try
@@ -162,16 +175,43 @@ namespace DataAccess
                 param_8.Value = project_admin_da;
                 command.Parameters.Add(param_8);
 
+                DbParameter param_9 = factory.CreateParameter();
+                param_9.ParameterName = "@p_out_error";
+                param_9.DbType = DbType.String;
+                param_9.Size = 200;
+                param_9.Direction = ParameterDirection.Output;
+                command.Parameters.Add(param_9);
+
                 //Open the connection.
                 connection.Open();
 
+                //Execute the query. This will return the number of rows updated.
                 no_of_records_updated = command.ExecuteNonQuery();
 
-                command.Parameters.Clear();
+                //Check if any exception occured in the back end.
+                if (param_9.Value.ToString().Equals("") || param_9.Value.ToString().Equals(" "))
+                {
+                    //No exception.
+                    
+                    //Clear the parameters.
+                    command.Parameters.Clear();
+                    
+                    //Return the number of rows updated.
+                    return no_of_records_updated;
+                }
+                else
+                {
+                    //Exception in the back end.
+                    string error = param_9.Value.ToString();
 
-                return no_of_records_updated;
+                    //Clear the parameters.
+                    command.Parameters.Clear();
 
-
+                    //Throw an exception with some relevant error message.
+                    //NOTE: RIGHT NOW, ALL VARIABLE error CONTAINS IS "Error!"
+                    //WE NEED TO FIND A WAY TO HAVE MORE DESCRIPTIVE ERROR MESSAGES BEING RETURNED FROM THE BACK END!
+                    throw new Exception(error);
+                }
             }
             catch (Exception ex)
             {
@@ -182,9 +222,7 @@ namespace DataAccess
             {
                 if (connection.State == ConnectionState.Open || connection != null)
                 {
-                    //Release resources no longer needed and close and dispose the connection.
-                    
-
+                    //Release resources no longer needed; close and dispose off the connection.
                     connection.Close();
                     connection.Dispose();
                 }
